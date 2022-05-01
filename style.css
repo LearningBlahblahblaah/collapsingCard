@@ -24,10 +24,12 @@ body {
 }
 .cards {
     display: flex;
-    flex-direction: row;
+    /* unnecessary */
+    /* flex-direction: row; */
     align-items: center;
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
+    width: 90vw;
     height: 100%;
     gap: 10px;
 }
@@ -37,8 +39,21 @@ body {
     height: 80vh;
     position: relative;
     transition: width 1s ease-in;
+    cursor: pointer;
+
+
+    /* use this if .card inline style="background-image: url("...") */
+    /* background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    transition: flex 0.7s ease-in;
+    border-radius: 50px; */
+    /* <-- set the width of each flex; */
+    /* flex: 0.5;  */
 
 }
+
 
 img {
     object-fit: cover;
@@ -53,8 +68,10 @@ label {
     left: 50%;
     transform: translateX(-50%);
     color: white;
+    /* opacity 0 to hide */
     opacity: 0;
-    transition: opacity 1s ease-in;
+    /* transition: opacity 1s ease-in; */
+    transition: opacity 0.3s ease-in 0.4s;
     font-size: 3rem;
     font-family: 'Square Peg', cursive;
 }
@@ -65,4 +82,14 @@ label {
 
 .active > label {
     opacity: 1;
+}
+
+/* ============================= */
+/* If screen < 480px, show only 3 cards */
+
+@media(max-width: 480px){
+    .card:nth-of-type(4), .card:nth-of-type(5){
+        display: none;
+    }
+
 }
